@@ -25,7 +25,7 @@ const Home = () => {
       <h1>Hi Trainer!</h1>
       <p>To Start give me your trainer name</p>
       <form onSubmit={handleSubmit}>
-        <input id='name' type="text" />
+        <input id='name' type="text" placeholder='Introduce your name'/>
         <button>Catch them all</button>
       </form>
     </div>

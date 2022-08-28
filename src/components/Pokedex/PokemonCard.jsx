@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import PokeStatus from './PokeStatus'
 
-const PokemonCard = () => {
+const PokemonCard = ({url}) => {
   const [pokemon, setPokemon] = useState()
 
     useEffect(() => {
@@ -9,9 +11,9 @@ const PokemonCard = () => {
         .catch(err => console.log(err))
     }, [])
 
-    console.log(pokemon)
+    //console.log(pokemon)
   return (
-    <article>
+    <article className='card__structure'>
       <header>
         <img src={pokemon?.sprites.other["official-artwork"]["front_default"]} alt="" />
       </header>
@@ -29,7 +31,7 @@ const PokemonCard = () => {
         <ul>
           {
             pokemon?.stats.map(cont => (
-              <PokeSta
+              <PokeStatus
               key={cont.stat.url}
               infoState={cont}
               />
