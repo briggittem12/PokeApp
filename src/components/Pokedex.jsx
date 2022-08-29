@@ -13,9 +13,54 @@ const Pokedex = () => {
       .catch(err => console.log(err))
   }, [])
 
+  const [PokeType, setPokeType] = useState()
+
+   useEffect(()=>{
+    const url = "https://pokeapi.co/api/v2/type/"
+    axios.get(url)
+        .then(res => setPokeType(res.data.results))
+        .catch(err => console.log(err))
+    },[])
+
+  const changeSubmit = (e = 1) => {
+
+    if (e === ""){
+
+    } else {
+
+        const type = e.target.value
+    
+        console.log(e.target.value)
+
+        const url = `https://pokeapi.co/api/v2/type/${type}/`
+
+        axios.get(url)
+            .then(res => console.log(res.data))
+            .catch(err => console.log(err))
+
+    }
+}
+
   return (
     <div>
       <h1>Pokedex Academlo</h1>
+      <div>
+          <form>
+            <input placeholder='Name...' type="text" />
+            <button>Search</button>
+          </form>
+
+          <form onChange={changeSubmit} >
+            <select>
+            <option key={0} value=""></option>
+              {
+                PokeType?.map((type,i) => (
+                <option key={i} value={i + 1}>{type?.name}</option>
+                ))
+              }
+            </select>
+          </form>
+        </div>
       <div className='cards-container'>
         {
           pokemons?.results.map(pokemon => (
