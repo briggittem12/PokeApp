@@ -64,10 +64,11 @@ const Pokedex = () => {
 
   return (
     <div className='card__body'>
-      <h1>Pokedex Academlo</h1>
-      <span>Welcome, {trainerName}</span>
+
+      <h1 className='poke__title'>Pokedex Academlo</h1>
+      <span className='poke__trainer'>Welcome, {trainerName}</span>
       <div className='cards_form'>
-          <form onSubmit={capSearch}>
+          <form>
             <input id='findPoke' placeholder='Name...' type="text" />
             <button>Search</button>
           </form>

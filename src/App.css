@@ -3,7 +3,7 @@ body {
     box-sizing: border-box;
 }
 img{
-    width: 100%;
+    width: 50%;
 }
 .App {
     display: flex;
@@ -13,9 +13,10 @@ img{
 .cards-container{
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 1rem;
+    flex: 1;
 }
 .card__structure{
     background-color: beige;
@@ -31,4 +32,11 @@ img{
 }
 .card_content{
     list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+.card_conte {
+    list-style: none;
+    padding: 0;
 }

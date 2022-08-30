@@ -1,8 +1,11 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 
 const PokemonDetails = () => {
+
+  let {id} = useParams()
   return (
-    <div>PokemonDetails</div>
+    <h1>{id}</h1>
   )
 }
 

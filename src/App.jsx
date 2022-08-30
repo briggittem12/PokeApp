@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './components/Home'
 import ProtectedRoutes from './components/ProtectedRoutes'
 import Pokedex from './components/Pokedex'
-import PokemonDetails from './components/PokemonDetails.jsx'
+import PokemonDetails from './components/PokemonDetails'
 
 function App() {
   const [count, setCount] = useState(0)
