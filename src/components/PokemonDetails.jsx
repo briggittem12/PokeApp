@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom'
 
 const PokemonDetails = () => {
 
-  let {id} = useParams()
+  let {name} = useParams()
   return (
-    <h1>{id}</h1>
+    <h1>{name}</h1>
   )
 }
 

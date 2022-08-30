@@ -16,7 +16,7 @@ const PokemonCard = ({url}) => {
 
     let seePoke = useNavigate()
 
-    let handlePoke = () => seePoke(`/pokedex/${pokemon.id}`)
+    let handlePoke = () => seePoke(`/pokedex/${pokemon.name}`)
 
     //console.log(pokemon)
 /*
