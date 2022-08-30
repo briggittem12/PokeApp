@@ -19,33 +19,27 @@ const Pokedex = () => {
 
 
   //search idk
-  /*
+  
   const [searchPoke, setSearchPoke] = useState()
   useEffect(() => {
+    let url
     if(searchPoke){
-      let url = `https://pokeapi.co/api/v2/pokemon/${searchPoke}`
-
-      let find = {
-        results: [
-          {
-            url
-          }
-        ]
-      }
-      setSearchPoke(find)
+      url = `https://pokeapi.co/api/v2/pokemon/${searchPoke}`
+      const obj={results:[{url}]}
+      setPokemons(obj)
     } else {
       const URL = 'https://pokeapi.co/api/v2/pokemon'
       axios.get(URL)
       .then(res => setPokemons(res.data))
       .catch(err => console.log(err))
     }
-  }, [])
+  }, [searchPoke])
 
   let capSearch = e => {
     e.preventDefault()
-    setSearchPoke(e.target.findPoke.value)
+    setSearchPoke(e.target.findPoke.value.trim().toLowerCase())
   }
-*/
+
   //Selec type baddd
   const [pokeType, setPokeType] = useState()
 
