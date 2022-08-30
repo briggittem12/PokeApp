@@ -94,3 +94,28 @@ ul .rtl_func > li {
     page-break-inside: avoid;
     break-inside: avoid; 
 }
+.pagination {
+    margin: 15px 0;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination ul {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.pagination a {
+    list-style: none;
+    text-decoration: none;
+}
+
+.btn-off {
+    display: none;
+}
