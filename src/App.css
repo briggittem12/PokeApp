@@ -1,6 +1,10 @@
 body {
     margin: 0;
     box-sizing: border-box;
+    font-size: 16px;
+}
+h1, h2, h3, h4, p{
+    margin: 0;
 }
 img{
     width: 50%;
@@ -15,20 +19,52 @@ img{
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 2rem;
     flex: 1;
 }
+.poke__title {
+    text-align: center;
+}
+.cards_form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
 .card__structure{
-    background-color: beige;
-    border: 1px solid salmon;
+    border-radius: 10px;
+    padding: 1em;
+    box-shadow: 0px 0px 8px 4px #4e4a4a;
 }
 .card__body{
     display: flex;
     justify-content: center;
     flex-direction: column;
+    flex: 1;
 }
 .cards_form{
     justify-content: space-between;
+}
+.poke_head{
+    display: flex;
+    justify-content: center;
+}
+.bg-grass{
+    background: linear-gradient(176.37deg, #7ec6c5, #ABDAC6, #CAE099);
+}
+.bg-fire {
+    background: linear-gradient(176.37deg, #e29530, #fc0e0e, #f0ce0c);
+}
+.bg-water {
+    background: linear-gradient(176.37deg, #30a1e2, #0e61fc, #0ce1f0);
+}
+.bg-normal {
+    background: linear-gradient(176.37deg, #353535, #4e4a4a, #35311c);
+}
+.bg-electric {
+    background: linear-gradient(176.37deg, #fcff35, #a7be21, #ffa52f);
+}
+.bg-bug {
+    background: linear-gradient(176.37deg, #7c35ff, #a421be, #d669c4);
 }
 .card_content{
     list-style: none;
@@ -36,7 +72,20 @@ img{
     display: flex;
     justify-content: space-evenly;
 }
-.card_conte {
+.card_conte{
+    background-color: #e3f3e4;
+    opacity: .6;
+    text-align: center;
+}
+.card_conte, ul {
     list-style: none;
-    padding: 0;
+    columns: 2; 
+    -webkit-columns: 2; 
+    -moz-columns: 2; 
+    display: block;
+}
+ul .rtl_func > li {
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid; 
 }

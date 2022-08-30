@@ -16,20 +16,17 @@ const PokemonCard = ({url}) => {
 
     let seePoke = useNavigate()
 
-    let handlePoke = () => seePoke(`/pokedex/${pokemon.name}`)
+    let handlePoke = () => {
+      seePoke(`/pokedex/${pokemon.name}`)
+    }
 
     //console.log(pokemon)
-/*
-    Crear objto para el  bg del pokemon 
-    let colorBg = {
-      fire: 'orange'
-    }
-*/
+
 
   return (
 
-    <article onClick={handlePoke} className='card__structure'>
-      <header>
+    <article onClick={handlePoke} className={`card__structure bg-${pokemon?.types[0].type.name}`}>
+      <header className='poke_head'>
         <img src={pokemon?.sprites.other["official-artwork"]["front_default"]} alt="" />
       </header>
       <section>
