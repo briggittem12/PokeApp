@@ -1,61 +1,83 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import nameTrainer from '../store/slices/nameTrainer.slice'
 import PokemonCard from './Pokedex/PokemonCard'
+import { useSelector } from 'react-redux/es/exports'
 
 const Pokedex = () => {
 
   const [pokemons, setPokemons] = useState()
 
+  let trainerName = useSelector(state => state.nameTrainer)
+
+   useEffect(() => {
+     const URL = 'https://pokeapi.co/api/v2/pokemon'
+     axios.get(URL)
+       .then(res => setPokemons(res.data))
+       .catch(err => console.log(err))
+   }, [])
+
+
+  //search idk
+  /*
+  const [searchPoke, setSearchPoke] = useState()
   useEffect(() => {
-    const URL = 'https://pokeapi.co/api/v2/pokemon'
-    axios.get(URL)
+    if(searchPoke){
+      let url = `https://pokeapi.co/api/v2/pokemon/${searchPoke}`
+
+      let find = {
+        results: [
+          {
+            url
+          }
+        ]
+      }
+      setSearchPoke(find)
+    } else {
+      const URL = 'https://pokeapi.co/api/v2/pokemon'
+      axios.get(URL)
       .then(res => setPokemons(res.data))
       .catch(err => console.log(err))
+    }
   }, [])
 
-  const [PokeType, setPokeType] = useState()
+  let capSearch = e => {
+    e.preventDefault()
+    setSearchPoke(e.target.findPoke.value)
+  }
+*/
+  //Selec type baddd
+  const [pokeType, setPokeType] = useState()
 
    useEffect(()=>{
-    const url = "https://pokeapi.co/api/v2/type/"
+    const url = 'https://pokeapi.co/api/v2/type/'
     axios.get(url)
         .then(res => setPokeType(res.data.results))
         .catch(err => console.log(err))
     },[])
 
-  const changeSubmit = (e = 1) => {
-
-    if (e === ""){
-
-    } else {
-
-        const type = e.target.value
-    
-        console.log(e.target.value)
-
-        const url = `https://pokeapi.co/api/v2/type/${type}/`
-
-        axios.get(url)
-            .then(res => console.log(res.data))
-            .catch(err => console.log(err))
-
+  const changeSubmit = e  => {
+    setPokeType(e.target.value)
     }
-}
+
+
 
   return (
-    <div>
+    <div className='card__body'>
       <h1>Pokedex Academlo</h1>
-      <div>
-          <form>
-            <input placeholder='Name...' type="text" />
+      <span>Welcome, {trainerName}</span>
+      <div className='cards_form'>
+          <form onSubmit={capSearch}>
+            <input id='findPoke' placeholder='Name...' type="text" />
             <button>Search</button>
           </form>
 
           <form onChange={changeSubmit} >
             <select>
-            <option key={0} value=""></option>
+            <option value="All">All Pokemon's</option>
               {
-                PokeType?.map((type,i) => (
-                <option key={i} value={i + 1}>{type?.name}</option>
+                pokeType?.map(type => (
+                <option key={type.name} value={type.name}>{type?.name}</option>
                 ))
               }
             </select>

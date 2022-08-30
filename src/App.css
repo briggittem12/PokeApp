@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    box-sizing: border-box;
 }
 img{
     width: 100%;
@@ -8,7 +9,6 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
 }
 .cards-container{
     display: flex;
@@ -18,6 +18,17 @@ img{
     gap: 1rem;
 }
 .card__structure{
-
+    background-color: beige;
     border: 1px solid salmon;
+}
+.card__body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.cards_form{
+    justify-content: space-between;
+}
+.card_content{
+    list-style: none;
 }
