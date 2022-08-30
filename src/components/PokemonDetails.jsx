@@ -22,22 +22,24 @@ const PokemonDetails = () => {
         <img src={pokemon?.sprites.other["official-artwork"]["front_default"]} alt={pokemon?.name} />
       </div>
       <div >
-        <ul className='poke_control'>
           <p>Type:</p>
+        <ul className='card_content'>
         {
           pokemon?.types.map(slot => (
             <li key={slot.type.url}>{slot.type.name}</li>
             ))
           }
+        </ul>  
           <p>Stats:</p>
+        <ul className='card_cont'>
         {
           pokemon?.stats.map(cont => (
-            <p key={cont.stat.url}>
-              {cont.stat.name}{cont.base_stat}
-            </p>
+            <li key={cont.stat.url}>
+             <span>{cont.stat.name}:</span> {cont.base_stat}
+            </li>
             ))
           }
-          </ul>  
+          </ul>
         </div>
 
     </article>

@@ -69,9 +69,9 @@ const Pokedex = () => {
       <span className='poke__trainer'>Welcome, {trainerName}</span>
       </div>
       <div className='cards_form'>
-          <form onSubmit={capSearch}>
-            <input id='findPoke' placeholder='Name...' type="text" />
-            <button>Search</button>
+          <form className='search' onSubmit={capSearch}>
+            <input  className='form_search' id='findPoke' placeholder='Name...' type="text" />
+            <button className='search_btn'>Search</button>
           </form>
 
           <form onChange={changeSubmit} >

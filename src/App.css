@@ -16,6 +16,7 @@ img{
     align-items: center;
     
 }
+/*--body of card--*/
 .cards-container{
     display: flex;
     justify-content: center;
@@ -45,9 +46,31 @@ img{
     flex-direction: column;
     flex: 1;
 }
+/*--form search and filter--*/
 .cards_form{
-    justify-content: space-between;
+    
 }
+.search {
+    display: flex;
+}
+.form_search {
+    width: 100%;
+    border: none;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+.search_btn {
+    background-color: brown;
+    border: none;
+    color: white;
+    text-decoration: none;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+
+/*--bg cards--*/
 .poke_head{
     display: flex;
     justify-content: center;
@@ -70,6 +93,7 @@ img{
 .bg-bug {
     background: linear-gradient(176.37deg, #7c35ff, #a421be, #d669c4);
 }
+/*--content card--*/
 .card_content{
     list-style: none;
     padding: 0;
