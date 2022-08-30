@@ -1,12 +1,16 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import nameTrainer from '../store/slices/nameTrainer.slice'
+import Pagination from "./Pokedex/Pagination";
 import PokemonCard from './Pokedex/PokemonCard'
 import { useSelector } from 'react-redux/es/exports'
 
 const Pokedex = () => {
 
   const [pokemons, setPokemons] = useState()
+
+  const [offset, setOffset] = useState(0);
+  const [limit, setLimit] = useState(20);
 
   let trainerName = useSelector(state => state.nameTrainer)
 
@@ -34,12 +38,14 @@ const Pokedex = () => {
       }
       setPokemons(find)
     } else {
-      const URL = 'https://pokeapi.co/api/v2/pokemon'
+      const URL = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
       axios.get(URL)
       .then(res => setPokemons(res.data))
       .catch(err => console.log(err))
     }
-  }, [searchPoke])
+  }, [offset, searchPoke])
+
+  const allPokemons = pokemons?.count;
 
   let capSearch = e => {
     e.preventDefault()
@@ -94,6 +100,16 @@ const Pokedex = () => {
             />
           ))
         }
+      </div>
+      <div className="pagination">
+        <Pagination
+          allPokemons={allPokemons}
+          offset={offset}
+          limit={limit}
+          setOffset={setOffset}
+          setPokemons={setPokemons}
+          setSearchPoke={setSearchPoke}
+        />
       </div>
     </div>
   )
