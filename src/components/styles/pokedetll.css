@@ -6,7 +6,41 @@
     min-height: 100vh;
     width: 100%;
     font-size: 18px;
+    overflow: hidden;
 }
 p{
     font-weight: bold;
+}
+.poke_det {
+    display: flex;
+    align-content: center;
+    position: relative;
+    animation-name: pokemon;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    padding: 2rem;
+}
+.poke_detls {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+@keyframes pokemon {
+    0%   {
+        left:10px; top:0px; right: 0;
+    }
+    25%  {
+         left:50px; top:0px; right: 0;
+        }
+    50%  {
+        left:50px; top:50px;;
+    }
+    75%  {
+        left:0px; top:50px;
+    }
+  100% {
+    left:150px; top:0px;
+}
+    
 }

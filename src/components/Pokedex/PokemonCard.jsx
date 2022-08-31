@@ -26,11 +26,13 @@ const PokemonCard = ({url}) => {
   return (
 
     <article onClick={handlePoke} className={`card__structure bg-${pokemon?.types[0].type.name}`}>
+          <button className='card_btn'><i className="fa-solid fa-eye"></i></button>
       <header className='poke_head'>
         <img src={pokemon?.sprites.other["official-artwork"]["front_default"]} alt="" />
       </header>
       <section>
-        <h3>{pokemon?.name}</h3>
+        <h3 className='card_name'>{pokemon?.name}</h3>
+          <p>Type's:</p>
         <ul className='card_content'>
           {
             pokemon?.types.map(slot => (
@@ -40,6 +42,7 @@ const PokemonCard = ({url}) => {
         </ul>
       </section>
       <footer>
+        <p>Status:</p>
         <ul className='card_conte'>
           {
             pokemon?.stats.map(cont => (
@@ -50,7 +53,6 @@ const PokemonCard = ({url}) => {
             ))
           }
         </ul>
-          
       
       </footer>
     </article>

@@ -18,10 +18,10 @@ const PokemonDetails = () => {
   return (
     <article className={`poke_uni bg-${pokemon?.types[0].type.name}`}>
       <h1>{ name }</h1>
-      <div>
+      <div className='poke_det'>
         <img src={pokemon?.sprites.other["official-artwork"]["front_default"]} alt={pokemon?.name} />
       </div>
-      <div >
+      <div className='poke_detls'>
           <p>Type:</p>
         <ul className='card_content'>
         {

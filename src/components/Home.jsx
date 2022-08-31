@@ -23,12 +23,16 @@ const Home = () => {
 
   return (
     <div className='home_init'>
-      <h1>Hi Trainer!</h1>
-      <p>To Start give me your trainer name</p>
-      <form className='form__home' onSubmit={handleSubmit}>
-        <input className='home_input' id='name' type="text" placeholder='Introduce your name'/>
-        <button className='home_btn'>Catch them all</button>
-      </form>
+      <div className='circle'>
+        <div className='home_cont'>
+        <h1>Hi Trainer!</h1>
+        <p>To Start give me your trainer name</p>
+        <form className='form__home' onSubmit={handleSubmit}>
+          <input className='home_input' id='name' type="text" placeholder='Introduce your name'/>
+          <button className='home_btn'><i className="fa-solid fa-forward"></i></button>
+        </form>
+        </div>
+      </div>
     </div>
   )
 }

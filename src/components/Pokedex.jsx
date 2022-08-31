@@ -4,6 +4,7 @@ import nameTrainer from '../store/slices/nameTrainer.slice'
 import Pagination from "./Pokedex/Pagination";
 import PokemonCard from './Pokedex/PokemonCard'
 import { useSelector } from 'react-redux/es/exports'
+import './styles/headpoke.css'
 
 const Pokedex = () => {
 
@@ -70,8 +71,14 @@ const Pokedex = () => {
 
   return (
     <div className='card__body'>
+      <header className='red-head'>
+      <h1>Pokedex</h1>
+        <div className='black-head'></div>
+        <div className='circle-head'>
+          <div className='circle-in'></div>
+        </div>
+      </header>
       <div className='poke__title'>
-      <h1>Pokedex Academlo</h1>
       <span className='poke__trainer'>Welcome, {trainerName}</span>
       </div>
       <div className='cards_form'>
@@ -81,7 +88,7 @@ const Pokedex = () => {
           </form>
 
           <form onChange={changeSubmit} >
-            <select>
+            <select className='form_select'>
             <option value="All">All Pokemon's</option>
               {
                 pokeType?.map(type => (
