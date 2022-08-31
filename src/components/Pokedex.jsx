@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import nameTrainer from '../store/slices/nameTrainer.slice'
 import Pagination from "./Pokedex/Pagination";
 import PokemonCard from './Pokedex/PokemonCard'
+import PokemonType from './Pokedex/PokemonType';
 import { useSelector } from 'react-redux/es/exports'
 
 const Pokedex = () => {
@@ -25,8 +26,19 @@ const Pokedex = () => {
   //search idk
   
   const [searchPoke, setSearchPoke] = useState()
+  const [pokeType, setPokeType] = useState()
+
   useEffect(() => {
-    if(searchPoke){
+    if(pokeType !== 'All'){
+      const URL = `https://pokeapi.co/api/v2/type/${pokeType}/`
+      axios.get(URL)
+        .then(res => {
+          const arr = res.data.pokemon.map(e => e.pokemon)
+          setPokemons({results: arr})
+        })
+        .catch(err => console.log(err))
+    } else if(searchPoke){
+      
       let url = `https://pokeapi.co/api/v2/pokemon/${searchPoke}`
 
       let find = {
@@ -35,7 +47,7 @@ const Pokedex = () => {
             url
           }
         ]
-      }
+      } 
       setPokemons(find)
     } else {
       const URL = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
@@ -43,30 +55,16 @@ const Pokedex = () => {
       .then(res => setPokemons(res.data))
       .catch(err => console.log(err))
     }
-  }, [offset, searchPoke])
+  }, [offset, searchPoke, pokeType])
 
   const allPokemons = pokemons?.count;
 
   let capSearch = e => {
     e.preventDefault()
-    setSearchPoke(e.target.findPoke.value.trim())
+    setSearchPoke(e.target.findPoke.value.trim().toLowerCase())
+    setPokeType("All")
+    e.target.findPoke.value = ""
   }
-
-  //Selec type baddd
-  const [pokeType, setPokeType] = useState()
-
-   useEffect(()=>{
-    const url = 'https://pokeapi.co/api/v2/type/'
-    axios.get(url)
-        .then(res => setPokeType(res.data.results))
-        .catch(err => console.log(err))
-    },[])
-
-  const changeSubmit = e  => {
-    setPokeType(e.target.value)
-    }
-
-
 
   return (
     <div className='card__body'>
@@ -80,16 +78,11 @@ const Pokedex = () => {
             <button>Search</button>
           </form>
 
-          <form onChange={changeSubmit} >
-            <select>
-            <option value="All">All Pokemon's</option>
-              {
-                pokeType?.map(type => (
-                <option key={type.name} value={type.name}>{type?.name}</option>
-                ))
-              }
-            </select>
-          </form>
+          <PokemonType 
+            pokeType={pokeType} 
+            setPokeType={setPokeType} 
+            setSearchPoke={setSearchPoke}
+          />
         </div>
       <div className='cards-container'>
         {
