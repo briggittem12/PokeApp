@@ -59,6 +59,8 @@ img{
     display: flex;
     justify-content: center;
     flex-direction: column;
+    background-color: #fce8b1;
+    filter: brightness(1.1);
 }
 
 /*--form search and filter--*/

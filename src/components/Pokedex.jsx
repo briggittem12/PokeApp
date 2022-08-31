@@ -5,6 +5,7 @@ import Pagination from "./Pokedex/Pagination";
 import PokemonCard from './Pokedex/PokemonCard'
 import PokemonType from './Pokedex/PokemonType';
 import { useSelector } from 'react-redux/es/exports'
+import './styles/headpoke.css'
 
 const Pokedex = () => {
 
@@ -73,23 +74,31 @@ const Pokedex = () => {
 
   return (
     <div className='card__body'>
+      <header className='purple-head'>
+      <h1>Pokedex</h1>
+        <div className='black-head'></div>
+        <div className='circle-head'>
+          <div className='circle-in'></div>
+        </div>
+      </header>
       <div className='poke__title'>
-      <h1>Pokedex Academlo</h1>
       <span className='poke__trainer'>Welcome, {trainerName}</span>
       </div>
       <div className='cards_form'>
-          <form onSubmit={capSearch}>
-            <input id='findPoke' placeholder='Name...' type="text" />
-            <button>Search</button>
+          <form onSubmit={capSearch} className='search'>
+            <input className='form_search' id='findPoke' placeholder='Name...' type="text" />
+            <button className='search_btn'>Search</button>
           </form>
 
+          <form>
           <PokemonType 
             pokeType={pokeType} 
             setPokeType={setPokeType} 
             setSearchPoke={setSearchPoke}
             setLimit={setLimit}
             setOffset={setOffset}
-          />
+            />
+            </form>
         </div>
       <div className='cards-container'>
         {
