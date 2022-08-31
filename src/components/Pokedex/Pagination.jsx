@@ -65,9 +65,7 @@ const Pagination = ({ allPokemons, setSearchPoke, offset, limit, setOffset }) =>
 
     } else {
         return (
-            <ul>
                 <button className="btn-back" onClick={handleBack}>Go Back</button>
-            </ul>
         )
     }
 
