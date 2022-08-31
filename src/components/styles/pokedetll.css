@@ -14,11 +14,11 @@ p{
 .poke_det {
     display: flex;
     align-content: center;
-    /* position: relative;
+    position: relative;
     animation-name: pokemon;
     animation-duration: 4s;
     animation-iteration-count: infinite;
-    padding: 2rem; */
+    padding: 2rem; 
 }
 .poke_detls {
     display: flex;

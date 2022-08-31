@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;700&display=swap');
+
 body {
     margin: 0;
     box-sizing: border-box;
     font-size: 16px;
     min-width: 320px;
+    font-family: 'Prompt', sans-serif;
 }
 h1, h2, h3, h4, p{
     margin: 0;
@@ -14,10 +17,11 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 /*--body of card--*/
 .cards-container{
-    display: grid;
+    display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 2rem;
@@ -38,12 +42,18 @@ img{
     font-size: 1.5rem;
     color: #fc0e0e;
 }
+
 .card__structure{
     border-radius: 10px;
     padding: 1em;
     box-shadow: 0px 0px 8px 4px #4e4a4a;
-    transition: width 2s, height 2s, transform 2s;
-    cursor: pointer;
+    transition: 0.5s;
+}
+.card__structure:hover{
+    box-shadow: 17px 25px 13px 7px rgba(18,18,18,0.68);
+    -webkit-box-shadow: 17px 25px 13px 7px rgba(18,18,18,0.68);
+    -moz-box-shadow: 17px 25px 13px 7px rgba(18,18,18,0.68);
+    transform: translateY(-30px);
 }
 .card__body{
     display: flex;
@@ -92,6 +102,9 @@ img{
     display: flex;
     justify-content: center;
 }
+.poke_head img {
+    width: 120px;
+}
 .bg-fighting {
     background: linear-gradient(176.83deg, #96402A -8.78%, #F1613C 169.09%, #CB735D 242.33%);
   }
@@ -117,36 +130,20 @@ img{
     background: linear-gradient(179.75deg, #5E736C -19.96%, #728881 43.67%, #A8A8A8 138.4%);
   }
 .bg-fire {
-    background: linear-gradient(176.37deg, #F96D6F -32.26%, #E35825 22.55%, #E8AE1B 125.72%);
-  }
+    background: linear-gradient(176.37deg, #e29530, #fc0e0e, #f0ce0c);
+}
 .bg-water {
-    background: linear-gradient(179.57deg, #133258 -70.14%, #1479FB 56.16%, #82B2F1 214.85%);
-  }
-.bg-grass {
-    background: linear-gradient(178.92deg, #7EC6C5 0.92%, #ABDAC6 47.96%, #CAE099 99.08%);
-  }
+    background: linear-gradient(176.37deg, #30a1e2, #0e61fc, #0ce1f0);
+}
+.bg-normal {
+    background: linear-gradient(176.37deg, #353535, #4e4a4a, #35311c);
+}
 .bg-electric {
-    background: linear-gradient(to top,rgba(255,253,165,1) 0%, rgba(252,224,70,1) 100%);
-  }
-.bg-phychic {
-    background: linear-gradient(179.75deg, #971B45 -19.96%, #C23867 43.67%, #CD7D98 138.4%);
-  }
-.bg-ice {
-    background: linear-gradient(177.03deg, #6FBEDF -11.97%, #64CBF5 47.77%, #BDEBFE 136.72%);
-  }
-.bg-dragon {
-    background: linear-gradient(179.75deg, #478A93 -19.96%, #56A4AE 43.67%, #A2BEC1 138.4%);
-  }
-.bg-dark, .bg-shadow {
-    background: linear-gradient(177.03deg, #030706 -11.97%, #0D1211 57.49%, #5A5E5D 135.64%);
-  }
-.bg-fairy {
-    background: linear-gradient(to top, rgba(255,126,245,1) 0%, rgba(250,223,243,1) 100%);
-  }
-  .bg-normal, .bg-unknown {
-    background: linear-gradient(177.03deg, #b3b3b3 -11.97%, #bababa 57.49%, #D3D3D3 135.64%);
-  }
-/*--content card--*/
+    background: linear-gradient(176.37deg, #fcff35, #a7be21, #ffa52f);
+}
+.bg-bug {
+    background: linear-gradient(176.37deg, #7c35ff, #a421be, #d669c4);
+}
 .card_content{
     list-style: none;
     padding: 0;
@@ -232,12 +229,5 @@ ul .rtl_func > li {
         flex-direction: row;
         justify-content: space-between;
     }
-    .cards-container{
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-@media (min-width:950px) {
-    .cards-container{
-        grid-template-columns: repeat(3, 1fr);
-    }
+    
 }
