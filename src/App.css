@@ -66,6 +66,7 @@ img{
 /*--form search and filter--*/
 .cards_form {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     margin: 1rem;
 }
@@ -213,10 +214,35 @@ ul .rtl_func > li {
     color: rgb(33, 33, 33)
 }
 .btn_pag {
+    width: 40px;
+    height: 40px;
     border-radius: 50px;
-    aspect-ratio: 1;
-    width: 100%;
+    padding: 0;
+    font-size: 20px;
     background-color: rgb(128, 104, 236);
+}
+.btn-more {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(128, 104, 236);
+    border: 2px solid #030706;
+    font-weight: bold;
+    border-radius: 50px;
+}
+.btn-firstpage {
+    background-color: rgb(128, 104, 236);
+    border: 2px solid #030706;
+    font-weight: bold;
+    border-radius: 50px;
+    padding: 10px 5px;
+}
+
+.btn-lastpage {
+    background-color: rgb(128, 104, 236);
+    border: 2px solid #030706;
+    font-weight: bold;
+    border-radius: 50px;
+    padding: 10px 5px;
 }
 
 .pagination a {
