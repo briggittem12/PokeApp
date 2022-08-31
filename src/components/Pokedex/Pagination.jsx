@@ -54,7 +54,7 @@ const Pagination = ({ allPokemons, setSearchPoke, offset, limit, setOffset }) =>
               <button className={currPage > 0 ? "btn-less": "btn-off"} onClick={handlePrevious}>...</button>
           {
               section[currPage]?.map((fragment) => (
-                  <li key={fragment}><button type='submit' onClick={handleOffset}>{fragment}</button></li> 
+                  <li key={fragment}><button className='btn_pag' type='submit' onClick={handleOffset}>{fragment}</button></li> 
                   ))
                   
           }
@@ -66,7 +66,7 @@ const Pagination = ({ allPokemons, setSearchPoke, offset, limit, setOffset }) =>
     } else {
         return (
             <ul>
-                <button className="btn__back" onClick={handleBack}>Back</button>
+                <button className="btn-back" onClick={handleBack}>Go Back</button>
             </ul>
         )
     }
