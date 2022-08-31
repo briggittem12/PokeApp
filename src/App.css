@@ -202,7 +202,6 @@ ul .rtl_func > li {
     padding: 15px;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .pagination ul {
@@ -211,7 +210,8 @@ ul .rtl_func > li {
     justify-content: center;
     align-items: center;
     gap: 15px;
-    color: rgb(33, 33, 33)
+    color: rgb(33, 33, 33);
+    flex-wrap:wrap;
 }
 .btn_pag {
     width: 40px;
