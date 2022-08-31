@@ -5,11 +5,11 @@ import Pagination from "./Pokedex/Pagination";
 import PokemonCard from './Pokedex/PokemonCard'
 import PokemonType from './Pokedex/PokemonType';
 import { useSelector } from 'react-redux/es/exports'
-import './styles/headpoke.css'
 
 const Pokedex = () => {
 
   const [pokemons, setPokemons] = useState()
+  const [pokeLength, setPokeLength] = useState()
 
   const [offset, setOffset] = useState(0);
   const [limit, setLimit] = useState(20);
@@ -26,19 +26,11 @@ const Pokedex = () => {
 
   //search idk
   
-  const [searchPoke, setSearchPoke] = useState()
-  const [pokeType, setPokeType] = useState()
+  const [searchPoke, setSearchPoke] = useState("")
+  const [pokeType, setPokeType] = useState("All")
 
   useEffect(() => {
-    if(pokeType !== 'All'){
-      const URL = `https://pokeapi.co/api/v2/type/${pokeType}/`
-      axios.get(URL)
-        .then(res => {
-          const arr = res.data.pokemon.map(e => e.pokemon)
-          setPokemons({results: arr})
-        })
-        .catch(err => console.log(err))
-    } else if(searchPoke){
+     if(searchPoke){
       
       let url = `https://pokeapi.co/api/v2/pokemon/${searchPoke}`
 
@@ -50,6 +42,18 @@ const Pokedex = () => {
         ]
       } 
       setPokemons(find)
+    } else if(pokeType !== 'All'){
+        const URL = `https://pokeapi.co/api/v2/type/${pokeType}/`
+        axios
+        .get(URL)
+        .then((res) => {
+          const arr = res.data.pokemon.map((e) => e.pokemon);
+          setPokeLength(arr.length);
+          const arr2 = arr.slice(offset, offset + limit);
+          setPokemons({ results: arr2 });
+        })
+        .catch((err) => console.log(err));
+      
     } else {
       const URL = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
       axios.get(URL)
@@ -58,7 +62,7 @@ const Pokedex = () => {
     }
   }, [offset, searchPoke, pokeType])
 
-  const allPokemons = pokemons?.count;
+  const allPokemons = pokemons?.count ? pokemons?.count : pokeLength;
 
   let capSearch = e => {
     e.preventDefault()
@@ -69,29 +73,23 @@ const Pokedex = () => {
 
   return (
     <div className='card__body'>
-      <header className='red-head'>
-      <h1>Pokedex</h1>
-        <div className='black-head'></div>
-        <div className='circle-head'>
-          <div className='circle-in'></div>
-        </div>
-      </header>
       <div className='poke__title'>
+      <h1>Pokedex Academlo</h1>
       <span className='poke__trainer'>Welcome, {trainerName}</span>
       </div>
       <div className='cards_form'>
-          <form className='search' onSubmit={capSearch}>
-            <input  className='form_search' id='findPoke' placeholder='Name...' type="text" />
-            <button className='search_btn'>Search</button>
+          <form onSubmit={capSearch}>
+            <input id='findPoke' placeholder='Name...' type="text" />
+            <button>Search</button>
           </form>
-          <form>
+
           <PokemonType 
             pokeType={pokeType} 
             setPokeType={setPokeType} 
             setSearchPoke={setSearchPoke}
-            />
-          </form>
-            
+            setLimit={setLimit}
+            setOffset={setOffset}
+          />
         </div>
       <div className='cards-container'>
         {
