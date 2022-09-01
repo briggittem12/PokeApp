@@ -61,6 +61,7 @@ img{
     flex-direction: column;
     background-color: #fce8b1;
     filter: brightness(1.1);
+    width: 100%;
 }
 
 /*--form search and filter--*/
