@@ -10,7 +10,7 @@ const Pagination = ({ allPokemons, setSearchPoke, offset, limit, setOffset }) =>
     }
 
     const section = [];
-    const longitudeSection = 3;
+    const longitudeSection = 5;
     for (let i = 0; i < pageNums.length; i += longitudeSection) {
         let fragment = pageNums.slice(i, i + longitudeSection);
         section.push(fragment)
@@ -51,14 +51,14 @@ const Pagination = ({ allPokemons, setSearchPoke, offset, limit, setOffset }) =>
         return (
             <ul>
               <button className={currPage > 0 ? "btn-firstpage": "btn-off"} onClick={firstpage}>First Page</button>
-              <button className={currPage > 0 ? "btn-more": "btn-off"} onClick={handlePrevious}>...</button>
+              <button className={currPage > 0 ? "btn-more": "btn-off"} onClick={handlePrevious}><i class="fa-solid fa-circle-arrow-left"></i></button>
           {
               section[currPage]?.map((fragment) => (
                   <li key={fragment}><button className='btn_pag' type='submit' onClick={handleOffset}>{fragment}</button></li> 
                   ))
                   
           }
-              <button className={currPage == firstIndexfragment-1 ? "btn-off": "btn-more"} onClick={handleNext}>...</button>
+              <button className={currPage == firstIndexfragment-1 ? "btn-off": "btn-more"} onClick={handleNext}><i class="fa-solid fa-circle-arrow-right"></i></button>
               <button className={currPage == firstIndexfragment-1 ? "btn-off": "btn-lastpage"} onClick={finalPage}>Last Page</button>
           </ul>
         )
